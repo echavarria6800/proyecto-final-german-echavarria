@@ -1,0 +1,86 @@
+{% extends './layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand">Bienvenido,{{ current_user.fullname }} </a>
+        <form class="d-flex">
+            <a class="btn btn-outline-success form-control me-2" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </form>
+    </div>
+</nav>
+<!--CARDS-->
+<div class="container">
+    <div class="row m-4">
+        <div class="col-md-4">
+            <div class="card text-dark bg-light mb-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Número de cuenta</h5>
+                    <p class="card-text">Tu número de cuenta es {{current_user.cuenta}} </p>
+                    <p class="card-text">Recuerda memorizar tu número para poder realizar tus transacciones</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-dark bg-light m-8" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Número de cedula</h5>
+                    <p class="card-text">Tu número de cedula es {{current_user.cedula}} </p>
+                    <p class="card-text">Este número de cedula asociado a esta cuenta</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-dark bg-light mb-8" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Usuario</h5>
+                    <p class="card-text">Tu Usuario es {{current_user.username}} </p>
+                    <p class="card-text">Recuerda que este es tu usuario para ingresar a la aplicación</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col-md-6">
+
+            <div class="card text-dark bg-light mb-8" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Tipo de cuenta</h5>
+                    <p class="card-text">Tienes una cuenta de tipo {{current_user.tipocuenta}} </p>
+                    <p class="card-text">Debes de tener presente el tipo de cuenta a la hora de una transacción</p>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-dark bg-light mb-8" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Saldo Disponible</h5>
+                    <p class="card-text">Tu saldo disponible es de :{{current_user.saldo}} </p>
+                    <p class="card-text">Este es es tu saldo asociado a esta cuenta</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<!--FOOTER-->
+<footer class="bg-dark text-center text-white m-0">
+  <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+    Trabajo realizado por German Alonso Echavarria Estrada
+  </div>
+  </footer>
+{% endblock %}

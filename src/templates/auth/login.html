@@ -1,0 +1,63 @@
+{% extends './layout.html' %} 
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> 
+{% endblock %}
+
+{% block body %}
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form action="/login" method="POST">
+            <div class="d-flex flex-row  justify-content-center ">
+              <p class="lead fw-normal mb-0 me-3 ">Bienvenido a nuestro portal</p>
+            </div>
+            <hr>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Usuario</label>
+              <input type="text" class="form-control form-control-lg" id="username" name="username"
+                placeholder="Ingresa tu usuario" />
+
+            </div>
+  
+       
+            <div class="form-outline mb-3">
+                <label class="form-label" for="form3Example4">Contraseña</label>
+              <input type="password" name="password" class="form-control form-control-lg"
+                placeholder="Ingresa tu Contraseña" />            
+            </div>
+  
+            <div class="text-center  mt-4 pt-2 justify-content-center">
+              <button type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresa a tu cuenta</button>
+
+            </div>
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+            <br />
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+        
+            {% endwith %}
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+{% endblock %}
